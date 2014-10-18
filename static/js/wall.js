@@ -15,7 +15,6 @@ function init()
 		
 		console.log("Submitting new message.");
 
-		var url = "/api/wall/set";
 		var self = this;
 
 		sendMessageDataToServer(self);
@@ -31,6 +30,7 @@ function init()
  */
 function sendMessageDataToServer(formObj)
 {
+	var url = "/api/wall/set";
 	// Send the message data to the server to be stored
 	$.ajax({
 		dataType: "json",

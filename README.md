@@ -1,5 +1,5 @@
-jQuery/AJAX
-=====================
+jQuery/AJAX Message Board
+=========================
 
 In order to allow Ubermelon employees to interact with each other, we're
 building a live message board application using Flask, HTML/CSS, and
@@ -87,7 +87,7 @@ Get the server started by running the application from your command line
 python js_webapp.py
 ```
 
-### Get Initial Messages
+### 1. Get Initial Messages
 
 Right now, we hardcode in some placeholder messages, but these should
 really be requested from the server at the time the page is loaded.
@@ -99,7 +99,7 @@ required by looking at the placeholder messages in the HTML.
 
 Once you've done this, **please request a code review.**
 
-### Update the Messages
+### 2. Update the Messages
 
 When a new message is posted, the message list should also be updated
 to include new messages. You should update the "message-container"
@@ -107,7 +107,7 @@ to reflect the new list of messages.
 
 Once you've done this, **please request a code review.**
 
-### New Feature: Filtering Words
+### 3. New Feature: Filtering Words
 
 Once you've got your page sending and receiving messages and updating the
 message wall, create a filter for your messages to take out naughty words
@@ -119,7 +119,7 @@ server-side (in Python). Which do you prefer? Why?
 
 Once you've done this, **please request a code review.**
 
-### New Feature: Prevent "Flooding"
+### 4. New Feature: Prevent "Flooding"
 
 We don't want to let users send dozens messages in a minute!
 
@@ -133,7 +133,7 @@ could be taken to prevent someone from doing so?
 
 Once you've done this, **please request a code review.**
 
-### Escape or Remove HTML From Messages
+### 5. New Feature: Escape or Remove HTML From Messages
 
 We don't want to allow people to put HTML into the messages
 themselves. That could open up a nasty security problem when these

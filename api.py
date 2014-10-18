@@ -1,35 +1,47 @@
 from flask import session
 
+
 class Api(object):
-	
-	def error(self,error):
-		fullError = {}
-		fullError["result"] = error
+    """API for messages application."""
 
-		return fullError
+    def error(self, error):
+        """Handle API errors.
 
-	def get(self):
-		if ('wall' not in session):
-			session['wall'] = []
+            error: (string) error message
 
-		return {
-			"result":"OK",
-			"messages": session['wall']
-		}
+            returns: dictionary error object.
+        """
 
-	def set(self, msg):
-		if ('wall' not in session):
-			session['wall'] = []
+        return  {
+            "result": error,
+        }
 
-		wallDict = {}
-		wallDict["message"] = msg
+    def get(self):
+        """Get messages.
 
-		session['wall'].append(wallDict);
+            returns: dictionary with messages list + result code.
+        """
 
-		result = self.get()
-		result["result"] = "Message Received"
+        return {
+            "result": "OK",
+            "messages": session.get('wall'),
+        }
 
-		return result
+    def set(self, msg):
+        """Set a new message.
 
-	def __init__(self):
-		pass
+            msg: (string) message
+
+            returns: dictionary with messages list + result code.
+        """
+
+        wall_dict = {
+            "message": msg,
+        }
+
+        session.setdefault('wall', []).append(wall_dict)
+
+        result = self.get()
+        result["result"] = "Message Received"
+
+        return result

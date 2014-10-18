@@ -1,11 +1,11 @@
 jQuery/AJAX
 =====================
 
-Here we have a half built app and it's your task to complete it.
+Here we have a half built application and it's your task to complete it.
 
 ## What Works Now
 
-Currently, the app allows you to send messages to the server and they are stored in the session.
+Currently, the application allows you to send messages to the server and they are stored in the session.
 
 #### Set Messages
 
@@ -31,7 +31,7 @@ Example JSON result
 
 ## Your Tasks
 
-Get the server started by running the app from your command line
+Get the server started by running the application from your command line
 ```
 python js_webapp.py
 ```
@@ -70,11 +70,11 @@ The result of the API when sending messages is the entire list of messages being
 
 ### Adding Features
 
-Below are some features you should add to your Message Wall app.
+Below are some features you should add to your Message Wall application.
 
 #### Filtering Blacklisted Words
 
-Once you've got your page sending and receiving messages and updating the message wall, create a filter for your messages to take out naughty words like "bad" and "ugly" and replace them with whitelisted words like "good" and "awesome."
+Once you've got your page sending and receiving messages and updating the message wall, create a filter for your messages to take out naughty words like "bad" and "ugly" and replace them with white-listed words like "good" and "awesome."
 
 #### Prevent Flooding
 
@@ -86,4 +86,4 @@ Prevent people who send messages from posting malicious code like JavaScript and
 
 ## Thinking Outside The Box
 
-Currently, all stored messages are being sent from the server whether or not you're setting of getting. Feel free to modify the server code to possibly keep track of new messages by date and time, seuential order or perhaps something entirely new. Also, is it really nessisary to send all the messages instead of just what the web page needs? Think about how you can improve on the system.
+Currently, all stored messages are being sent from the server whether or not you're setting of getting. Feel free to modify the server code to possibly keep track of new messages by date and time, sequential order or perhaps something entirely new. Also, is it really necessary to send all the messages instead of just what the web page needs? Think about how you can improve on the system.

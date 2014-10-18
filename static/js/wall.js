@@ -2,7 +2,7 @@ $(document).ready(function () {
     // Normally, JavaScript runs code at the time that the <script>
     // tags loads the JS. By putting this inside a jQuery $(document).ready()
     // function, this code only gets run when the document finishing loading.
-	initWallApplication();
+    initWallApplication();
 });
 
 /**
@@ -10,16 +10,16 @@ $(document).ready(function () {
  * completely loaded (and drunk).
  */
 function initWallApplication() {
-	$("#message-form").submit(function (e) {
-		e.preventDefault();
-		
-		console.log("Submitting new message.");
-		var url = "/api/wall/set";
-    	sendMessageDataToServer(this, url);
+    $("#message-form").submit(function (e) {
+        e.preventDefault();
 
-		// Reset the message container to be empty
-		$("#message").val("");
-	});
+        console.log("Submitting new message.");
+        var url = "/api/wall/set";
+        sendMessageDataToServer(this, url);
+
+        // Reset the message container to be empty
+        $("#message").val("");
+    });
 }
 
 /*
@@ -27,17 +27,17 @@ function initWallApplication() {
  * and passes the message to it.
  */
 function sendMessageDataToServer(formObj, url) {
-	// Send the message data to the server to be stored
-	$.ajax({
-		dataType: "json",
-		url: url,
-		type: 'POST',
-		data: $(formObj).serialize(),
-		success: function (data) {
-			console.log("sendMessageDataToServer: ", data);
-			showTempResultMessage(data.result);
-		}
-	});
+    // Send the message data to the server to be stored
+    $.ajax({
+        dataType: "json",
+        url: url,
+        type: 'POST',
+        data: $(formObj).serialize(),
+        success: function (data) {
+            console.log("sendMessageDataToServer: ", data);
+            showTempResultMessage(data.result);
+        }
+    });
 }
 
 /*
@@ -62,10 +62,10 @@ function showTempResultMessage(resultMsg) {
         // so that the inner function can find it and where it will have the
         // same value. When stashing "this" into a new variable like that,
         // many JS programmers use the name "self"; some others use "that".
-		var self = this;
+        var self = this;
 
-		setTimeout(function () {
-			$(self).slideUp();
-		}, 2000);
-	});
+        setTimeout(function () {
+            $(self).slideUp();
+        }, 2000);
+    });
 }

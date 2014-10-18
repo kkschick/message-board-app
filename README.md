@@ -140,7 +140,7 @@ Once you've done this, **please request a code review.**
 We don't want to allow people to put HTML into the messages
 themselves. That could open up a nasty security problem when these
 messages show up on other people's browsers--especially if their
-HTML included <script> tags containing Javascript that was run!
+HTML included HTML script tags containing Javascript that was run!
 
 - You might prefer to do this by removing HTML entirely, so a message
   like "I am a <b>hacker</b>" becomes "I am a ".

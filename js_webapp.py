@@ -46,7 +46,7 @@ def wall_action(action):
         # Get the message from the "m" argument passed in the POST.
         # (to get things from a GET response, we've used request.args.get();
         # this is the equivalent for getting things from a POST response)
-        msg = request.form.get('m')
+        msg = request.form.get('m').strip()
 
         # Check to make sure the message is being sent to the API
         if msg is None:

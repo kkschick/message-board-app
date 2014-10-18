@@ -45,11 +45,10 @@ This must be a GET request. It returns an array of message objects and an
 
 ```json
 {
-    "messages": [{
-        "message": "I'm a message!"
-    }, {
-		"message": "I'm another message."
-    }],
+    "messages": [
+      { "message": "I'm a message!" },
+      { "message": "I'm another message." }
+    ],
     "result": "OK"
 }
 ```
@@ -73,11 +72,10 @@ For example:
 
 ```json
 {
-    "messages": [{
-        "message": "I'm a message!"
-    }, {
-		"message": "I'm the message you just sent."
-    }],
+    "messages": [
+      { "message": "I'm a message!" },
+      { "message": "I'm the message you just sent." },
+    ],
     "result": "Message received"
 }
 ```
@@ -143,7 +141,7 @@ messages show up on other people's browsers--especially if their
 HTML included HTML script tags containing Javascript that was run!
 
 - You might prefer to do this by removing HTML entirely, so a message
-  like "I am a &lt;b;&gt;hacker&lt;/b&gt;" becomes "I am a ".
+  like "I am a &lt;b&gt;hacker&lt;/b&gt;" becomes "I am a ".
 
 - Or you could do it by "escaping" the HTML, where the HTML brackets
   are removed or changed into non-HTML-angle backets, so that message

@@ -143,12 +143,13 @@ messages show up on other people's browsers--especially if their
 HTML included HTML script tags containing Javascript that was run!
 
 - You might prefer to do this by removing HTML entirely, so a message
-  like "I am a <b>hacker</b>" becomes "I am a ".
+  like "I am a &lt;b;&gt;hacker&lt;/b&gt;" becomes "I am a ".
 
 - Or you could do it by "escaping" the HTML, where the HTML brackets
   are removed or changed into non-HTML-angle backets, so that message
-  would become "I am a &lt;b&gt;hacker&lt;/b&gt;" (that would show
-  them the brackets, but it wouldn't make the word hacker bold).
+  would become "I am a &amp;lt;b&amp;gt;hacker&amp;lt;/b&amp;gt;"
+  (that would show them the brackets, but it wouldn't make the
+  word hacker bold).
 
 - Or you could remove the HTML tags but keep the text, so the message
   would become "I am a hacker".

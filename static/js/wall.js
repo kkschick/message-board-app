@@ -14,8 +14,7 @@ function initWallApplication() {
         e.preventDefault();
 
         console.log("Submitting new message.");
-        var url = "/api/wall/set";
-        sendMessageDataToServer(this, url);
+        sendMessageDataToServer(this);
 
         // Reset the message container to be empty
         $("#message").val("");
@@ -26,11 +25,11 @@ function initWallApplication() {
  * This function makes the AJAX call to the server
  * and passes the message to it.
  */
-function sendMessageDataToServer(formObj, url) {
+function sendMessageDataToServer(formObj) {
     // Send the message data to the server to be stored
     $.ajax({
         dataType: "json",
-        url: url,
+        url: "/api/wall/set",
         type: 'POST',
         data: $(formObj).serialize(),
         success: function (data) {

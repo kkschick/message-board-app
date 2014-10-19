@@ -28,7 +28,7 @@ class Api(object):
             returns: dictionary error object.
         """
 
-        return  {
+        return {
             "result": error,
         }
 

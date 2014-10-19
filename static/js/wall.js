@@ -29,7 +29,7 @@ function sendMessageDataToServer(formObj) {
     // Send the message data to the server to be stored
     $.ajax({
         dataType: "json",
-        url: "/api/wall/set",
+        url: "/api/wall/add",
         type: 'POST',
         data: $(formObj).serialize(),
         success: function (data) {

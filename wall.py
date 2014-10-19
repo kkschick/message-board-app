@@ -1,4 +1,6 @@
-from flask import Flask, request, render_template, json, make_response
+import json
+
+from flask import Flask, request, render_template, make_response
 
 from api import wall_list, wall_add, wall_error
 

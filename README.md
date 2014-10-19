@@ -119,8 +119,18 @@ Once you've done this, **please request a code review.**
 We don't want to let users send dozens messages in a minute!
 
 Add a time limit to how often you're allowed to set a new message.
-Change the Javascript to require at least 10 seconds between sending
+Change the Javascript to require at least 5 seconds between sending
 messages.
+
+There are different ways you could do this but one way is to disable
+the sending button on the HTML form. jQuery has a method that can
+be used to add a "disabled" property onto that button. You could
+then take that off 5 seconds later.
+
+Alternatively, you could keep the button enabled, but show an error
+if people try to use it more than once every 5 seconds.
+
+Which do you prefer? Why?
 
 After you've done that, some things to think about: how secure is this?
 Could a clever hacker get around this? What kinds of backup measures

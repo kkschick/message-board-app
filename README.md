@@ -97,8 +97,6 @@ of messages. You should do this by manipulating the DOM to place these
 message in the "message-container" list. You can see the HTML structure
 required by looking at the placeholder messages in the HTML.
 
-Once you've done this, **please request a code review.**
-
 ### 2. Update the Messages
 
 When a new message is posted, the message list should also be updated

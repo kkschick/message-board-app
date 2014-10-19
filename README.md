@@ -82,6 +82,14 @@ For example:
 
 ## Your Tasks
 
+Build and activate a virtualenv containing flask:
+
+```
+virtualenv env
+source env/bin/activate
+pip install flask
+```
+
 Get the server started by running the application from your command line
 ```
 python js_webapp.py

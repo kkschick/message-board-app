@@ -74,9 +74,9 @@ For example:
 {
     "messages": [
       { "message": "I'm a message!" },
-      { "message": "I'm the message you just sent." },
+      { "message": "I'm the message you just sent." }
     ],
-    "result": "Message received"
+    "result": "Message Received"
 }
 ```
 

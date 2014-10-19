@@ -6,6 +6,7 @@ $(document).ready(function () {
     $("#message-form").submit(handleFormSubmit);
 });
 
+
 /**
  * Handle submission of the form.
  */
@@ -22,6 +23,7 @@ function handleFormSubmit(evt) {
     textArea.val("");
 }
 
+
 /**
  * Makes AJAX call to the server and the message to it.
  */
@@ -35,6 +37,7 @@ function addMessage(msg) {
         }
     );
 }
+
 
 /**
  * This is a helper function that does nothing but show a section of the

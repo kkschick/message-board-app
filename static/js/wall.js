@@ -2,48 +2,45 @@ $(document).ready(function () {
     // Normally, JavaScript runs code at the time that the <script>
     // tags loads the JS. By putting this inside a jQuery $(document).ready()
     // function, this code only gets run when the document finishing loading.
-    initWallApplication();
+
+    $("#message-form").submit(handleFormSubmit);
 });
 
 /**
- * The init function is run once the document is
- * completely loaded (and drunk).
+ * Handle submission of the form.
  */
-function initWallApplication() {
-    $("#message-form").submit(function (e) {
-        e.preventDefault();
+function handleFormSubmit(evt) {
+    evt.preventDefault();
 
-        console.log("Submitting new message.");
-        sendMessageDataToServer(this);
+    var textArea = $("#message");
+    var msg = textArea.val();
 
-        // Reset the message container to be empty
-        $("#message").val("");
-    });
+    console.log("handleFormSubmit: ", msg);
+    addMessage(msg);
+
+    // Reset the message container to be empty
+    textArea.val("");
 }
 
-/*
- * This function makes the AJAX call to the server
- * and passes the message to it.
+/**
+ * Makes AJAX call to the server and the message to it.
  */
-function sendMessageDataToServer(formObj) {
-    // Send the message data to the server to be stored
-    $.ajax({
-        dataType: "json",
-        url: "/api/wall/add",
-        type: 'POST',
-        data: $(formObj).serialize(),
-        success: function (data) {
-            console.log("sendMessageDataToServer: ", data);
-            showTempResultMessage(data.result);
+function addMessage(msg) {
+    $.post(
+        "/api/wall/add",
+        {'m': msg},
+        function (data) {
+            console.log("addMessage: ", data);
+            displayResultStatus(data.result);
         }
-    });
+    );
 }
 
-/*
+/**
  * This is a helper function that does nothing but show a section of the
  * site (the message result) and then hide it a moment later.
  */
-function showTempResultMessage(resultMsg) {
+function displayResultStatus(resultMsg) {
     var notificationArea = $("#sent-result");
     notificationArea.text(resultMsg);
     notificationArea.slideDown(function () {

@@ -16,7 +16,7 @@ DEFAULT_MESSAGES = [
 ]
 
 
-def wall_error(self, error):
+def wall_error(error):
     """Handle API errors.
 
         error: (string) error message
@@ -28,7 +28,7 @@ def wall_error(self, error):
         "result": error,
     }
 
-def wall_list(self):
+def wall_list():
     """Get messages.
 
         returns: dictionary with messages list + result code.
@@ -39,7 +39,7 @@ def wall_list(self):
         "messages": session.setdefault('wall', DEFAULT_MESSAGES),
     }
 
-def wall_add(self, msg):
+def wall_add(msg):
     """Set a new message.
 
         msg: (string) message

@@ -87,12 +87,12 @@ Build and activate a virtualenv containing flask:
 ```
 virtualenv env
 source env/bin/activate
-pip install flask
+pip install -r requirements.txt
 ```
 
 Get the server started by running the application from your command line
 ```
-python js_webapp.py
+python wall.py
 ```
 
 ### 1. Get Initial Messages

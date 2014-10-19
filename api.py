@@ -39,7 +39,7 @@ class Api(object):
 
         return {
             "result": "OK",
-            "messages": session.get('wall', DEFAULT_MESSAGES),
+            "messages": session.setdefault('wall', DEFAULT_MESSAGES),
         }
 
     def set(self, msg):

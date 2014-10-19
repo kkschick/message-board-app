@@ -149,10 +149,10 @@ HTML included HTML script tags containing Javascript that was run!
   like "I am a &lt;b&gt;hacker&lt;/b&gt;" becomes "I am a ".
 
 - Or you could do it by "escaping" the HTML, where the HTML brackets
-  are removed or changed into non-HTML-angle backets, so that message
+  are removed or changed into non-HTML-angle brackets, so that message
   would become "I am a &amp;lt;b&amp;gt;hacker&amp;lt;/b&amp;gt;"
-  (that would show them the brackets, but it wouldn't make the
-  word hacker bold).
+  (that would show them the brackets as brackets, but it wouldn't
+  make the word hacker bold).
 
 - Or you could remove the HTML tags but keep the text, so the message
   would become "I am a hacker".

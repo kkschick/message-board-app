@@ -105,15 +105,12 @@ to reflect the new list of messages.
 
 Once you've done this, **please request a code review.**
 
-### 3. New Feature: Filtering Words
+### 3. New Feature: Clear the Messages
 
-Once you've got your page sending and receiving messages and updating the
-message wall, create a filter for your messages to take out naughty words
-like "bad" and "ugly" and replace them with preferred words like
-"good" and "awesome."
+Add a feature that clears the existing messages. This should reset so that
+just the initial "welcome" message is in the list.
 
-You could do this either on the client-side (in Javascript) or the
-server-side (in Python). Which do you prefer? Why?
+Add a button onto the HTML form that calls this.
 
 Once you've done this, **please request a code review.**
 

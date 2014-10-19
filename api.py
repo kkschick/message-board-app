@@ -12,9 +12,10 @@ from flask import session
 # So that you can play with the `get` API, we return a single
 # test message as the default.
 DEFAULT_MESSAGES = [
-    {'message': 'First message.'},
+    {'message': 'Welcome! (this is the built-in first message)'},
 ]
 
+# Dictionary of bad -> good words to
 
 class Api(object):
     """API for messages application."""

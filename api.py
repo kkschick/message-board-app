@@ -15,7 +15,6 @@ DEFAULT_MESSAGES = [
     {'message': 'Welcome! (this is the built-in first message)'},
 ]
 
-# Dictionary of bad -> good words to
 
 class Api(object):
     """API for messages application."""

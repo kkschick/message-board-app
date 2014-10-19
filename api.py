@@ -16,47 +16,44 @@ DEFAULT_MESSAGES = [
 ]
 
 
-class Api(object):
-    """API for messages application."""
+def wall_error(self, error):
+    """Handle API errors.
 
-    def error(self, error):
-        """Handle API errors.
+        error: (string) error message
 
-            error: (string) error message
+        returns: dictionary error object.
+    """
 
-            returns: dictionary error object.
-        """
+    return {
+        "result": error,
+    }
 
-        return {
-            "result": error,
-        }
+def wall_list(self):
+    """Get messages.
 
-    def get(self):
-        """Get messages.
+        returns: dictionary with messages list + result code.
+    """
 
-            returns: dictionary with messages list + result code.
-        """
+    return {
+        "result": "OK",
+        "messages": session.setdefault('wall', DEFAULT_MESSAGES),
+    }
 
-        return {
-            "result": "OK",
-            "messages": session.setdefault('wall', DEFAULT_MESSAGES),
-        }
+def wall_add(self, msg):
+    """Set a new message.
 
-    def set(self, msg):
-        """Set a new message.
+        msg: (string) message
 
-            msg: (string) message
+        returns: dictionary with messages list + result code.
+    """
 
-            returns: dictionary with messages list + result code.
-        """
+    wall_dict = {
+        "message": msg,
+    }
 
-        wall_dict = {
-            "message": msg,
-        }
+    session.setdefault('wall', []).append(wall_dict)
 
-        session.setdefault('wall', []).append(wall_dict)
+    result = self.get()
+    result["result"] = "Message Received"
 
-        result = self.get()
-        result["result"] = "Message Received"
-
-        return result
+    return result

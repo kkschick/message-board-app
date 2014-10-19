@@ -37,7 +37,7 @@ messages and sending a new message.
 The API for getting the messages is
 
 ```
-http://localhost:5000/api/wall/get
+http://localhost:5000/api/wall/list
 ```
 
 This must be a GET request. It returns an array of message objects and an
@@ -58,7 +58,7 @@ This must be a GET request. It returns an array of message objects and an
 The API for sending a message is
 
 ```
-http://localhost:5000/api/wall/set
+http://localhost:5000/api/wall/add
 ```
 
 **You must also pass the POST parameter "m" and it must contain a valid
@@ -97,7 +97,7 @@ python js_webapp.py
 
 ### 1. Get Initial Messages
 
-Right now, we hardcode in some placeholder messages, but these should
+Right now, we hardcoded in some placeholder messages, but these should
 really be requested from the server at the time the page is loaded.
 
 Your task is to retrieve these messages using jQuery/AJAX and update the list
@@ -126,7 +126,7 @@ Once you've done this, **please request a code review.**
 
 We don't want to let users send dozens messages in a minute!
 
-Add a time limit to how often you're allowed to set a new message.
+Add a time limit to how often you're allowed to send a new message.
 Change the Javascript to require at least 5 seconds between sending
 messages.
 
@@ -185,6 +185,8 @@ http://getbootstrap.com/components/#alerts.
 
 Which would be a good choice for errors? Which would you want to use for
 message-received?
+
+Once you've done this, **please request a code review.**
 
 ## Extra Credit/Advanced: Thinking Outside The Box
 

@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template, json, make_response
 import jinja2
 
-from api import Api
+from api import wall_list, wall_add, wall_error
 
 
 app = Flask(__name__)
@@ -22,41 +22,12 @@ app.jinja_env.undefined = jinja2.StrictUndefined
 
 @app.route("/")
 def index():
-    html = render_template("wall.html")
-    return html
+    """Return index page."""
+    return render_template("wall.html")
 
 
-# We're routing this next function to two different routes:
-#
-#   - /api/wall, but if you use this, we'll set the action to ="get"
-#   - /api/wall/<action>, where we get the action from the URL
-#
-# Since we only want GET requests used for our GET method, and POST
-# requests used for our set method, we check that inside the code.
-
-@app.route("/api/wall", defaults={"action": "get"}, methods=['GET'])
-@app.route("/api/wall/<action>", methods=['GET', 'POST'])
-def wall_action(action):
-    api = Api()
-
-    if action == "get" and request.method == 'GET':
-        result = api.get()
-
-    elif action == "set" and request.method == 'POST':
-        # Get the message from the "m" argument passed in the POST.
-        # (to get things from a GET response, we've used request.args.get();
-        # this is the equivalent for getting things from a POST response)
-        msg = request.form.get('m').strip()
-
-        # Check to make sure the message is being sent to the API
-        if msg is None:
-            result = api.error("You did not specify a message to set.")
-        elif msg == "":
-            result = api.error("Your message is empty")
-        else:
-            result = api.set(msg)
-    else:
-        result = api.error("You did not specify a valid request method.")
+def _convert_to_JSON(result):
+    """Convert result object to a JSON web request."""
 
     # In order for us to return a response that isn't just HTML, we turn our
     # response dictionary into a string-representation (using json.dumps),
@@ -77,6 +48,36 @@ def wall_action(action):
     response.mimetype = "application/json"
 
     return response
+
+
+@app.route("/api/wall/list")
+def list_messages():
+    """Return list of wall messages as JSON."""
+
+    result = wall_list()
+    return _convert_to_JSON(result)
+
+
+@app.route("/api/wall/add", methods=['POST'])
+def add_message():
+    """Add a message and return list of wall messages as JSON."""
+
+    # Get the message from the "m" argument passed in the POST.
+    # (to get things from a GET response, we've used request.args.get();
+    # this is the equivalent for getting things from a POST response)
+    msg = request.form.get('m').strip()
+
+    if msg is None:
+        result = wall_error("You did not specify a message to set.")
+
+    elif msg == "":
+        result = wall_error("Your message is empty")
+
+    else:
+        result = wall_add(msg)
+
+    return _convert_to_JSON(result)
+
 
 
 if __name__ == "__main__":

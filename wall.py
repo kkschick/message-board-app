@@ -1,5 +1,4 @@
 from flask import Flask, request, render_template, json, make_response
-import jinja2
 
 from api import wall_list, wall_add, wall_error
 
@@ -12,12 +11,7 @@ app = Flask(__name__)
 # environmental variable outside of the Flask app and gets it with
 # os.environ['MY_SECRET_KEY']. For our exercise purposes, though, it's
 # fine to have this here.
-app.secret_key = 'look at that sweet key!'
-
-# Make it an error to use undefined variables in templates.
-# (This isn't required for this exercise, but is a good practice for Flask/Jinja2;
-# otherwise errors are silently ignored, which makes for harder debugging.)
-app.jinja_env.undefined = jinja2.StrictUndefined
+app.secret_key = 'a4c96d59-57a8-11e4-8b97-80e6500ee2f6'
 
 
 @app.route("/")

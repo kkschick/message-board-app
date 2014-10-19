@@ -164,6 +164,20 @@ the HTMLParser module in the Python standard library.
 
 Once you've done this, **please request a code review.**
 
+### 6. Stylize Messages Differently
+
+Right now, the alert messages (for message-received, message-empty, etc)
+all look the same, with a blue background. We'd like to show the error
+messages with a red background.
+
+Hint: We're using Bootstrap's "alert" CSS. To stylize an alert differently,
+you can change the classes from "alert alert-info" to "alert alert-[level]".
+You can read about the different alert levels at
+http://getbootstrap.com/components/#alerts.
+
+Which would be a good choice for errors? Which would you want to use for
+message-received?
+
 ## Extra Credit/Advanced: Thinking Outside The Box
 
 Currently, all stored messages are being sent from the server whether

@@ -28,30 +28,47 @@
   <div class="row">
 
     <div class="col-xs-12 page-header">
-      <h1>Message Wall Exercise</h1>
+      <h1>
+        <span class="glyphicon glyphicon-star"></span>
+        Message Wall
+      </h1>
+
       <p class="lead">Send messages to our server and get updates here.</p>
     </div>
 
-    <div class="col-lg-3">
-      <h2>Send a Message</h2>
-      <form role="form" id="message-form">
-        <div class="form-group">
-          <textarea class="form-control" name="m" id="message"
-                    placeholder="Enter message"></textarea>
+    <div class="col-xs-12 col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <span class="glyphicon glyphicon-pencil"></span>
+            Send Message
+          </h3>
         </div>
-        <button id="message-send" type="submit" class="btn btn-primary">
-          Submit
-        </button>
-      </form>
+        <div class="panel-body">
+          <form role="form" id="message-form">
+            <div class="form-group">
+              <textarea class="form-control" name="m" id="message"
+                        placeholder="Enter message"></textarea>
+            </div>
+            <button id="message-send" type="submit" class="btn btn-primary">
+              Submit
+            </button>
+          </form>
 
-      <p id="sent-result" class="alert alert-info"></p>
+          <p id="sent-result" class="alert alert-info"></p>
+
+        </div>
+      </div>
     </div>
 
-    <div class="col-lg-9">
-      <h2>The Message Wall</h2>
-
+    <div class="col-xs-12 col-md-8">
       <div class="panel panel-default">
-        <div class="panel-heading">Messages:</div>
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <span class="glyphicon glyphicon-list-alt"></span>
+            Messages
+          </h3>
+        </div>
         <div class="panel-body">
           <ul class="list-group" id="message-container">
             <li class="list-group-item">Placeholder message #1</li>
@@ -69,9 +86,12 @@
 </div>
 <!-- /.container -->
 
-<script src="/static/js/jquery-1.11.0.js"></script> <!-- jQuery v1.11.0 -->
-<script src="/static/js/bootstrap.min.js"></script> <!-- Bootstrap's JS -->
-<script src="/static/js/wall.js"></script>          <!-- Message Wall JS -->
+<script src="/static/js/jquery-1.11.0.js"></script>
+<!-- jQuery v1.11.0 -->
+<script src="/static/js/bootstrap.min.js"></script>
+<!-- Bootstrap's JS -->
+<script src="/static/js/wall.js"></script>
+<!-- Message Wall JS -->
 
 </body>
 

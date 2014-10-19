@@ -1,4 +1,8 @@
 #sent-result {
-  margin-top: 1em;
-  display: none;
+    margin-top: 1em;
+    display: none;
+}
+
+h1 {
+    color: purple;
 }

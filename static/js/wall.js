@@ -4,6 +4,7 @@ $(document).ready(function () {
     // function, this code only gets run when the document finishing loading.
 
     $("#message-form").submit(handleFormSubmit);
+    display_posts();
 });
 
 
@@ -18,7 +19,6 @@ function handleFormSubmit(evt) {
 
     console.log("handleFormSubmit: ", msg);
     addMessage(msg);
-
     // Reset the message container to be empty
     textArea.val("");
 }
@@ -34,10 +34,10 @@ function addMessage(msg) {
         function (data) {
             console.log("addMessage: ", data);
             displayResultStatus(data.result);
+            place_msg(data);
         }
     );
 }
-
 
 /**
  * This is a helper function that does nothing but show a section of the
@@ -67,4 +67,21 @@ function displayResultStatus(resultMsg) {
             $(self).slideUp();
         }, 2000);
     });
+}
+
+function display_posts(){
+  $.get("/api/wall/list", function(data){
+    place_msg(data);
+  });
+}
+
+function place_msg(data) {
+    $("#message-container").empty();
+    messages = data;
+    display = messages['messages'];
+    console.log(display);
+    for (i=0;i < display.length; i++){
+      // $("#message-container").load()
+      $("#message-container").prepend("<li class='list-group-item'>" + display[i]['message'] + "</li>");
+    }
 }

@@ -1,3 +1,2 @@
-Thumbs.db
-/env/
 *.pyc
+env/

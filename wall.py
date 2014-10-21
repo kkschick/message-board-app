@@ -42,7 +42,7 @@ def _convert_to_JSON(result):
     # Setting the MIMETYPE to JSON's will explicitly mark this as JSON;
     # this can help some client applications understand what they get back.
     response.mimetype = "application/json"
-
+    print response
     return response
 
 
@@ -51,6 +51,7 @@ def list_messages():
     """Return list of wall messages as JSON."""
 
     result = wall_list()
+    print result
     return _convert_to_JSON(result)
 
 

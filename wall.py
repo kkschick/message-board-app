@@ -2,7 +2,7 @@ import json
 
 from flask import Flask, request, render_template, make_response
 
-from api import wall_list, wall_add, wall_error
+from api import wall_list, wall_add, wall_error, wall_clear
 
 
 app = Flask(__name__)
@@ -75,6 +75,12 @@ def add_message():
 
     return _convert_to_JSON(result)
 
+@app.route('/api/wall/clear')
+def clear_wall():
+    
+    result = wall_clear()
+    print result
+    return _convert_to_JSON(result)
 
 
 if __name__ == "__main__":

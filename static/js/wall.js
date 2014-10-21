@@ -5,6 +5,7 @@ $(document).ready(function () {
 
     $("#message-form").submit(handleFormSubmit);
     display_posts();
+    // setTimeout($("#message-send").prop("disabled", true), 5000);
 });
 
 
@@ -80,8 +81,18 @@ function place_msg(data) {
     messages = data;
     display = messages['messages'];
     console.log(display);
-    for (i=0;i < display.length; i++){
-      // $("#message-container").load()
+    for (var i=0;i < display.length; i++){
       $("#message-container").prepend("<li class='list-group-item'>" + display[i]['message'] + "</li>");
     }
 }
+
+$("#message-reset").click(function(){
+    $.get('/api/wall/clear', function(result){
+        display_posts();
+    });
+});
+
+$("#message-send").click(function(e) {
+    setTimeout($("#message-send").prop("disabled", true), 5000);
+    $("#message-send").prop("disabled", false);
+});

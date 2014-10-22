@@ -5,7 +5,6 @@ $(document).ready(function () {
 
     $("#message-form").submit(handleFormSubmit);
     display_posts();
-    // setTimeout($("#message-send").prop("disabled", true), 5000);
 });
 
 
@@ -63,10 +62,16 @@ function displayResultStatus(resultMsg) {
         // same value. When stashing "this" into a new variable like that,
         // many JS programmers use the name "self"; some others use "that".
         var self = this;
+        $("#message-send").prop("disabled", true);
 
         setTimeout(function () {
             $(self).slideUp();
         }, 2000);
+
+        setTimeout(function() {
+            $("#message-send").prop("disabled", false);
+        }, 5000);
+
     });
 }
 
@@ -92,7 +97,10 @@ $("#message-reset").click(function(){
     });
 });
 
-$("#message-send").click(function(e) {
-    setTimeout($("#message-send").prop("disabled", true), 5000);
-    $("#message-send").prop("disabled", false);
-});
+// $("#message-send").click(function(e) {
+//     setTimeout($("#message-send").prop("disabled", true), 5000);
+//     if ($("#message-send").prop("disabled", true))
+//     {
+//         $("#message-send").prop("disabled", true);
+//     }
+// });

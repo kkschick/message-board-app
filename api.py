@@ -5,9 +5,14 @@ application, we'd want to store the messages in a server-side persistent
 store (like a relational database). However, since we're demonstrating how
 to use client-side session systems, this stores things there.
 """
-
-
 from flask import session
+# from HTMLParser import HTMLParser
+# import re
+
+# # class MyHTMLParser(HTMLParser):
+# #     def handle_data(self,data):
+# #         return data
+# parser = HTMLParser()
 
 # So that you can play with the `get` API, we return a single
 # test message as the default.
@@ -48,6 +53,9 @@ def wall_add(msg):
 
         returns: dictionary with messages list + result code.
     """
+    
+    # re.sub('<[^<]+?>','', msg)
+    # print msg
 
     wall_dict = {
         "message": msg,

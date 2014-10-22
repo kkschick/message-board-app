@@ -88,6 +88,7 @@ function place_msg(data) {
     console.log(display);
     for (var i=0;i < display.length; i++){
       $("#message-container").prepend("<li class='list-group-item'>" + display[i]['message'] + "</li>");
+      $(".list-group-item").text(display[i]['message']).html();
     }
 }
 

@@ -1,4 +1,4 @@
-#sent-result {
+#sent-result, #sent-fail {
     margin-top: 1em;
     display: none;
 }

@@ -44,7 +44,11 @@ function addMessage(msg) {
  * site (the message result) and then hide it a moment later.
  */
 function displayResultStatus(resultMsg) {
-    var notificationArea = $("#sent-result");
+    var notificationArea;
+    if (resultMsg === "Message Received") {
+        notificationArea = $("#sent-result");}
+    else {
+        notificationArea = $("#sent-fail");}
     notificationArea.text(resultMsg);
     notificationArea.slideDown(function () {
         // In JavaScript, "this" is a keyword that means "the object this
@@ -86,7 +90,7 @@ function place_msg(data) {
     messages = data;
     display = messages['messages'];
     console.log(display);
-    for (var i=0;i < display.length; i++){
+    for (var i = 0 ; i < display.length; i++){
       $("#message-container").prepend("<li class='list-group-item'>" + display[i]['message'] + "</li>");
       $(".list-group-item").text();
     }
@@ -97,11 +101,3 @@ $("#message-reset").click(function(){
         display_posts();
     });
 });
-
-// $("#message-send").click(function(e) {
-//     setTimeout($("#message-send").prop("disabled", true), 5000);
-//     if ($("#message-send").prop("disabled", true))
-//     {
-//         $("#message-send").prop("disabled", true);
-//     }
-// });

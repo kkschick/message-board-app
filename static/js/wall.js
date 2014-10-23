@@ -4,8 +4,8 @@ $(document).ready(function () {
     // function, this code only gets run when the document finishing loading.
 
     $("#message-form").submit(handleFormSubmit);
-    getMessages();
     $("#message-container").empty();
+    getMessages();
 });
 
 

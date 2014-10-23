@@ -4,7 +4,8 @@ $(document).ready(function () {
     // function, this code only gets run when the document finishing loading.
 
     $("#message-form").submit(handleFormSubmit);
-    display_posts();
+    getMessages();
+    $("#message-container").empty();
 });
 
 
@@ -34,7 +35,8 @@ function addMessage(msg) {
         function (data) {
             console.log("addMessage: ", data);
             displayResultStatus(data.result);
-            place_msg(data);
+            if (msg) {
+                getMessages(data);}
         }
     );
 }
@@ -79,25 +81,36 @@ function displayResultStatus(resultMsg) {
     });
 }
 
-function display_posts(){
-  $.get("/api/wall/list", function(data){
-    place_msg(data);
-  });
+function getMessages(data) {
+    $.get("/api/wall/last", function(data){
+        $("#message-container").prepend("<li class='list-group-item'>" + data + "</li>");
+    });
 }
 
-function place_msg(data) {
-    $("#message-container").empty();
-    messages = data;
-    display = messages['messages'];
-    console.log(display);
-    for (var i = 0 ; i < display.length; i++){
-      $("#message-container").prepend("<li class='list-group-item'>" + display[i]['message'] + "</li>");
-      $(".list-group-item").text();
-    }
-}
 
 $("#message-reset").click(function(){
     $.get('/api/wall/clear', function(result){
-        display_posts();
+        $("#message-container").empty();
+        getMessages(result);
     });
 });
+
+
+// Lines 100-115 are the former version of the getMessages function.
+
+// function display_posts(){
+//   $.get("/api/wall/list", function(data){
+//     getMessages(data);
+//   });
+// }
+
+// function getMessages(data) {
+    // $("#message-container").empty();
+    // messages = data;
+    // display = messages['messages'];
+    // console.log(display);
+    // for (var i = 0 ; i < display.length; i++){
+      // $("#message-container").prepend("<li class='list-group-item'>" + display[i]['message'] + "</li>");
+      // $(".list-group-item").text();
+    // }
+// }

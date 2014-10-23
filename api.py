@@ -39,6 +39,11 @@ def wall_list():
         "messages": session.setdefault('wall', DEFAULT_MESSAGES),
     }
 
+def wall_last():
+    """ Return a dictionary with the result code and the last message submitted."""
+
+    return session["wall"][-1]["message"]
+
 
 def wall_add(msg):
     """Set a new message.
@@ -60,7 +65,7 @@ def wall_add(msg):
     return result
 
 def wall_clear():
-    session['wall'] = DEFAULT_MESSAGES
+    session["wall"] = DEFAULT_MESSAGES
 
     result = wall_list()
     result["result"] = "Wall Cleared"

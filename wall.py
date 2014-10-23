@@ -2,7 +2,7 @@ import json
 
 from flask import Flask, request, render_template, make_response
 
-from api import wall_list, wall_add, wall_error, wall_clear
+from api import wall_list, wall_add, wall_error, wall_clear, wall_last
 
 
 app = Flask(__name__)
@@ -53,6 +53,12 @@ def list_messages():
     return _convert_to_JSON(result)
 
 
+@app.route("/api/wall/last")
+def last_message():
+    result = wall_last()
+    return _convert_to_JSON(result)
+
+
 @app.route("/api/wall/add", methods=['POST'])
 def add_message():
     """Add a message and return list of wall messages as JSON."""
@@ -70,6 +76,7 @@ def add_message():
 
     else:
         result = wall_add(msg)
+
 
     return _convert_to_JSON(result)
 
